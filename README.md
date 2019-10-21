@@ -2,7 +2,7 @@
 This Python script is for detecting the position coordinates of a marker using a stereo camera.
 
 ## Requirement
-Soft:OpenCV2 Hard:stereo camera, infrared LED marker
+Soft: OpenCV2 Hard: stereo camera, infrared LED marker
 
 ## Usage
 - Create a "calibration" folder in the working directory.
