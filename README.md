@@ -20,4 +20,4 @@ When this is executed, "combined_movie.avi" is created.
 - Finally, when you run "stereo_camera_kai_3.py" in the working directory, CSV file containing the position coordinates of the three axes is generated.
 
 ## Auther
-Syunsuke Akahori, Shota Nakamura
+Syunsuke Akahori, Shota Nakamura: doraiden555777@yahoo.co.jp
