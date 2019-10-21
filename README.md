@@ -15,3 +15,5 @@ This will create multiple CSV files in which parameters such as camera matrix ar
 - Create "left_movie" on the working directory, and put the video shot with the left camera of the video you want to detect. 
 At this time, the video should be in the "* .avi" format. Where * is a number starting from 0. Execute "combine_1.py" in "left_movie" to combine multiple videos into one video. Similarly, the video shot with the right camera is also combined on "right_movie". 
 When this is executed, "combined_movie.avi" is created.
+
+- If you run "avi_to_png_kai_0.py", you will get a video converted to PNG in the directory "png_file" based on the video of "combined_movie.avi".
