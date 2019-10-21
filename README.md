@@ -19,5 +19,5 @@ When this is executed, "combined_movie.avi" is created.
 - If you run "avi_to_png_kai_0.py", you will get a video converted to PNG in the directory "png_file" based on the video of "combined_movie.avi".
 - Finally, when you run "stereo_camera_kai_3.py" in the working directory, CSV file containing the position coordinates of the three axes is generated.
 
-##Auther
+## Auther
 Syunsuke Akahori, Shota Nakamura
