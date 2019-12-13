@@ -172,13 +172,16 @@ def loop_main():
 
             writer = csv.writer(f,lineterminator = '\n')
             writer.writerow(A)
-            continue
+            
+
+        if area_l == 0 or area_r == 0:
+            break
         
         if j == (len(list_left_sort) - 1) or k == (len(list_right_sort) - 1):
             break
 
-        else:
-            break
+    
+
 
     print("Finish")
 
