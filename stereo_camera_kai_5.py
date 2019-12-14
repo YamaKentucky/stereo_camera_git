@@ -10,6 +10,7 @@ import re
 now = datetime.datetime.now()
 date = '{0:%m_%d_%H-%M-%S}'.format(now)
 f= open('Position_measurement' + date + ".csv",'w')
+writer = csv.writer(f,lineterminator = '\n')
 
 N = 1900
 imageSize = (1024,768)
@@ -167,15 +168,13 @@ def loop_main():
         if area_l > 0 and area_r > 0:
             A = aaa(moment_l,moment_r)
             A = [A[0] - A0[0],A[1] - A0[1],A[2] - A0[2]]
-            j = j + 1
-            k = k + 1
-
-            writer = csv.writer(f,lineterminator = '\n')
             writer.writerow(A)
-            
 
-        if area_l == 0 or area_r == 0:
-            break
+        j = j + 1
+        k = k + 1
+
+        # if area_l == 0 or area_r == 0:
+        #     break
         
         if j == (len(list_left_sort) - 1) or k == (len(list_right_sort) - 1):
             break
