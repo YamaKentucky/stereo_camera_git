@@ -13,14 +13,10 @@ f= open('Position_measurement' + date + ".csv",'w')
 writer = csv.writer(f,lineterminator = '\n')
 
 N = 1900
-imageSize = (1024,768)
-# j = 711 #L
-# k = 584 #R
 thresh = 240
-#thresh = 100
 mac_pixel =255
-directory_left  = './left_movie/png_file/'
-directory_right = './right_movie/png_file/'
+directory_left  = './left/'
+directory_right = './right/'
 dorectory_calibration = './calibration/'
 
 list_left = glob.glob(directory_left + '*.png')
@@ -40,7 +36,10 @@ T = numpy.loadtxt(dorectory_calibration + 'T.csv',delimiter = ',')
 # 平行化変換のためのRとPおよび3次元変換行列Qを求める
 flags = 0
 alpha = 1
-newimageSize = (1024,768)
+#imageSize = (1024,768)
+imageSize = (list_left_sort[1], list_left_sort[0])
+#newimageSize = (1024,768)
+newimageSize = (list_left_sort[1], list_left_sort[0])
 R1, R2, P1, P2, Q, validPixROI1, validPixROI2 = cv2.stereoRectify(cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, flags, alpha, newimageSize)
 
 # 平行化変換マップを求める
