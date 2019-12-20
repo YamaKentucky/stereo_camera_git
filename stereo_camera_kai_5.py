@@ -72,7 +72,7 @@ def calculate_contour_area(im_l,im_r):
 
 def calculate_moment_left(j):
     im_l = cv2.imread(list_left_sort[j])
-    print list_left_sort[j] 
+    print (list_left_sort[j]) 
 
     interpolation = cv2.INTER_NEAREST
     Re_TgtImg = cv2.remap(im_l, map1_l, map2_l, interpolation)
@@ -85,7 +85,7 @@ def calculate_moment_left(j):
 
 def calculate_moment_right(k):
     im_r = cv2.imread(list_right_sort[k])
-    print  list_right_sort[k] 
+    print  (list_right_sort[k]) 
 
     interpolation = cv2.INTER_NEAREST
     Re_TgtImg = cv2.remap(im_r, map1_r, map2_r, interpolation)
@@ -121,7 +121,7 @@ def find_first():
                 continue
             
             if area_l > 0:
-                print "Found left"
+                print ("Found left")
                 j_0 = j
                 break
 
@@ -137,7 +137,7 @@ def find_first():
                 
 
             if area_r > 0:
-                print "Found right"
+                print ("Found right")
                 k_0 = k
                 break
 
@@ -185,7 +185,7 @@ def loop_main():
 
     
 if __name__ == "__main__":
-    print "Start!!"
+    print ("Start!!")
     loop_main()
     
 
