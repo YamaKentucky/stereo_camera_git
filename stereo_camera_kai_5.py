@@ -15,9 +15,9 @@ writer = csv.writer(f,lineterminator = '\n')
 N = 1900
 thresh = 240
 mac_pixel =255
-directory_left  = './left/'
-directory_right = './right/'
-dorectory_calibration = './calibration/'
+directory_left  = '../left/'
+directory_right = '../right/'
+dorectory_calibration = '../calibration/'
 
 list_left = glob.glob(directory_left + '*.png')
 list_right = glob.glob(directory_right + '*.png')
