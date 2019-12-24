@@ -164,7 +164,8 @@ def loop_main():
         
         if area_l > 0 and area_r > 0:
             A = aaa(moment_l,moment_r)
-            A = [A[0] - A0[0],A[1] - A0[1],A[2] - A0[2]]
+            #A = [A[0] - A0[0],A[1] - A0[1],A[2] - A0[2]]
+            A = [A[2] - A0[2], -(A[0] - A0[0]), -(A[1] - A0[1])]
             writer.writerow(A)
 
         j = j + 1
