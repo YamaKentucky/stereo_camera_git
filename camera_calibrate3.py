@@ -22,7 +22,7 @@ def main():
     for fn in glob("left*.jpg"):
         # 画像の取得
         im = cv2.imread(fn, 0)
-        print "loading..." + fn
+        print ("loading..." + fn)
         # チェスボードのコーナーを検出
         found, corner = cv2.findChessboardCorners(im, pattern_size)
         # コーナーがあれば
@@ -31,7 +31,7 @@ def main():
             cv2.cornerSubPix(im, corner, (5,5), (-1,-1), term)
         # コーナーがない場合のエラー処理
         if not found:
-            print 'chessboard not found'
+            print ('chessboard not found')
             continue
         img_points.append(corner.reshape(-1, 2))   #appendメソッド：リストの最後に因数のオブジェクトを追加
         obj_points.append(pattern_points)
@@ -41,9 +41,9 @@ def main():
     # 内部パラメータを計算
     rms, K_l, d_l, r, t = cv2.calibrateCamera(obj_points,img_points,(im.shape[1],im.shape[0]))
     # 計算結果を表示
-    print "RMS = ", rms
-    print "K = \n", K_l
-    print "d = ", d_l.ravel()
+    print ("RMS = ", rms)
+    print ("K = \n", K_l)
+    print ("d = ", d_l.ravel())
     # 計算結果を保存
     numpy.savetxt("K_left.csv", K_l, delimiter =',',fmt="%0.14f") #カメラ行列の保存
     numpy.savetxt("d_left.csv", d_l, delimiter =',',fmt="%0.14f") #歪み係数の保存
@@ -54,7 +54,7 @@ def main():
     for fn in glob("right*.jpg"):
         # 画像の取得
         im = cv2.imread(fn, 0)
-        print "loading..." + fn
+        print ("loading..." + fn)
         # チェスボードのコーナーを検出
         found, corner = cv2.findChessboardCorners(im, pattern_size)
         # コーナーがあれば
@@ -63,7 +63,7 @@ def main():
             cv2.cornerSubPix(im, corner, (5,5), (-1,-1), term)
         # コーナーがない場合のエラー処理
         if not found:
-            print 'chessboard not found'
+            print ('chessboard not found')
             continue
         img_points.append(corner.reshape(-1, 2))   #appendメソッド：リストの最後に因数のオブジェクトを追加
         obj_points.append(pattern_points)
@@ -73,9 +73,9 @@ def main():
     # 内部パラメータを計算
     rms, K_r, d_r, r, t = cv2.calibrateCamera(obj_points,img_points,(im.shape[1],im.shape[0]))
     # 計算結果を表示
-    print "RMS = ", rms
-    print "K = \n", K_r
-    print "d = ", d_r.ravel()
+    print ("RMS = ", rms)
+    print ("K = \n", K_r)
+    print ("d = ", d_r.ravel())
     # 計算結果を保存
     numpy.savetxt("K_right.csv", K_r, delimiter =',',fmt="%0.14f") #カメラ行列の保存
     numpy.savetxt("d_right.csv", d_r, delimiter =',',fmt="%0.14f") #歪み係数の保存
@@ -98,8 +98,8 @@ def main():
         # 画像の取得
         im_l = cv2.imread(list_left[i], 0)
         im_r = cv2.imread(list_right[i], 0)
-        print "loading..." + "left" +str(i)+ ".jpg"
-        print "loading..." + "right" +str(i)+ ".jpg"
+        print ("loading..." + "left" +str(i)+ ".jpg")
+        print ("loading..." + "right" +str(i)+ ".jpg")
         #コーナー検出
         found_l, corner_l = cv2.findChessboardCorners(im_l, pattern_size)
         found_r, corner_r = cv2.findChessboardCorners(im_r, pattern_size)
@@ -116,17 +116,17 @@ def main():
 
         # コーナーがない場合のエラー処理
         if not found_l:
-            print 'chessboard not found in leftCamera'
+            print ('chessboard not found in leftCamera')
             continue
         if not found_r:
-            print 'chessboard not found in rightCamera'
+            print ('chessboard not found in rightCamera')
             continue
 
 
     img_points1.append(corner_l.reshape(-1, 2))
     img_points2.append(corner_r.reshape(-1, 2))
     obj_points.append(pattern_points)
-    print 'found corners in ' + str(i) + ' is adopted'
+    print ('found corners in ' + str(i) + ' is adopted')
 
 
     # システムの外部パラメータを計算
@@ -138,9 +138,9 @@ def main():
     retval, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, R, T, E, F = cv2.stereoCalibrate(obj_points, img_points1, img_points2, imageSize, cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2)
 
     # 計算結果を表示
-    print "retval = ", retval
-    print "R = \n", R
-    print "T = \n", T
+    print ("retval = ", retval)
+    print ("R = \n", R)
+    print ("T = \n", T)
     # 計算結果を保存
     numpy.savetxt("cameraMatrix1.csv", cameraMatrix1, delimiter =',',fmt="%0.14f") #新しいカメラ行列を保存
     numpy.savetxt("cameraMatrix2.csv", cameraMatrix2, delimiter =',',fmt="%0.14f")
